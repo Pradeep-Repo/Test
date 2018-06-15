@@ -20,6 +20,7 @@ int cif_no;
 String risk_grad;
 Float income;
 String lastName;
+String Last_last_name;
 String profession;
 @OneToOne
 @JoinColumn(name = "cif_no",nullable=false)
