@@ -19,6 +19,7 @@ public class CustomerAddDetail {
 int cif_no;
 String risk_grad;
 Float income;
+String lastName;
 String profession;
 @OneToOne
 @JoinColumn(name = "cif_no",nullable=false)
