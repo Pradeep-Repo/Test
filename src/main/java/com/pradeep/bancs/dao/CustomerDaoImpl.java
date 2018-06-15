@@ -1,11 +1,14 @@
 package com.pradeep.bancs.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 
 
 import com.pradeep.bancs.entity.Customer;
@@ -43,6 +46,13 @@ public class CustomerDaoImpl implements CustomerDao {
 		//u.setPassword("*"); //hiding password dont do this will update the db 
 		logger.info("User loaded successfully, User details="+u);
 		return u;
+	}
+	
+	public List<Customer> getAll()
+	{
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Customer> clist = session.createQuery("from Customer").list();
+		return clist;
 	}
 
 }

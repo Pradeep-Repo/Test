@@ -1,5 +1,7 @@
 package com.pradeep.bancs.services;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,12 @@ public class CustomerServiceImpl implements CustomerService {
 	{
 		logger.info("enetred Service");
 		return this.customerdao.get(id);
+	}
+	
+	public List<Customer> getAll()
+	{
+		List<Customer> clist = this.customerdao.getAll();
+		return clist;
 	}
 
 }

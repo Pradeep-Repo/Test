@@ -1,5 +1,7 @@
 package com.pradeep.bancs.controllers;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,4 +44,15 @@ public ResponseEntity<?> get(@PathVariable("id") int id)
 			HttpStatus.OK);
 	
 }
+
+@RequestMapping(value="/customer/getlist" , method = RequestMethod.GET)
+public ResponseEntity<?> get()
+{
+	logger.info("Enetred Controller");
+	List<Customer> lcust = this.customerservice.getAll();
+	return new ResponseEntity<List<Customer>>(lcust,
+			HttpStatus.OK);
+	
+}
+
 }
